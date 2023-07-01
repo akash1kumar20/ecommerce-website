@@ -1,0 +1,11 @@
+.text {
+  font-weight: bolder;
+  font-size: larger;
+}
+.box {
+  border: 1px solid black;
+  width: 30%;
+
+  align-items: end;
+  justify-content: end;
+}

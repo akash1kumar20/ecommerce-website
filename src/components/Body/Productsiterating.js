@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import CartContext from "../../Data_room/CartContext";
 import "./ProductsIterating.css";
 export default function Productsiterating(props) {
+  let cartCtx = useContext(CartContext);
+  const addItems = () => {
+    cartCtx.addItem({
+      id: props.id,
+      price: props.price,
+      name: props.name,
+    });
+  };
   let odd = props.id % 2 !== 0;
   let even = props.id % 2 === 0;
   return (
@@ -10,7 +19,9 @@ export default function Productsiterating(props) {
           <div className="col-md-3">
             <div className="image">{props.image}</div>
             <li className="price">₹{props.price}</li>
-            <li className="btn btn-md btn1">ADD TO CART</li>
+            <button className="btn btn-md btn1" onClick={addItems}>
+              ADD TO CART
+            </button>
           </div>
         )}
       </div>
@@ -19,7 +30,9 @@ export default function Productsiterating(props) {
           <div className="col-md-3">
             <div className="image">{props.image}</div>
             <li className="price">₹{props.price}</li>
-            <li className="btn btn-md btn1">ADD TO CART</li>
+            <button className="btn btn-md btn1" onClick={addItems}>
+              ADD TO CART
+            </button>
           </div>
         )}
       </div>

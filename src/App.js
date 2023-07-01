@@ -2,9 +2,10 @@ import Header from "./components/Header/Header";
 import Title from "./components/Header/Title";
 import Products from "./components/Body/Products";
 import Cart from "./components/Body/Cart";
+import DataProvider from "./Data_room/DataProvider";
 function App() {
   return (
-    <div>
+    <DataProvider>
       <header>
         <Header />
         <Title />
@@ -13,7 +14,7 @@ function App() {
         <Products />
         <Cart />
       </main>
-    </div>
+    </DataProvider>
   );
 }
 

@@ -1,0 +1,30 @@
+.green {
+  margin-top: 5px;
+  text-align: end;
+  margin-bottom: 50px;
+  position: relative;
+}
+.yellow {
+  position: relative;
+  margin-top: 5px;
+  text-align: end;
+  margin-bottom: 50px;
+}
+.btn1 {
+  background-color: rgb(4, 105, 145);
+  color: white;
+  border-radius: 10rem;
+  margin-top: 10px;
+}
+.price {
+  list-style: none;
+  text-align: left;
+  position: absolute;
+  margin-top: 20px;
+}
+.image {
+  transition: transform 0.2s;
+}
+.image:hover {
+  zoom: 120%;
+}

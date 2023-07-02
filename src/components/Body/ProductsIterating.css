@@ -1,30 +1,46 @@
-.green {
-  margin-top: 5px;
-  text-align: end;
-  margin-bottom: 50px;
-  position: relative;
-}
-.yellow {
-  position: relative;
-  margin-top: 5px;
-  text-align: end;
-  margin-bottom: 50px;
-}
 .btn1 {
+  list-style: none;
+  display: inline;
+  position: static;
+  justify-content: end;
+  align-items: end;
   background-color: rgb(4, 105, 145);
   color: white;
   border-radius: 10rem;
   margin-top: 10px;
 }
+.btn1:hover {
+  display: inline;
+  position: absolute;
+  align-items: end;
+  background-color: green;
+  color: white;
+  transition: transform 0.3s;
+  zoom: 110%;
+}
 .price {
   list-style: none;
   text-align: left;
-  position: absolute;
   margin-top: 20px;
 }
 .image {
   transition: transform 0.2s;
+  margin-left: 15px;
 }
 .image:hover {
   zoom: 120%;
+}
+.titleA {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.margin {
+  margin-top: 5px;
+  margin-left: 2rem;
+}
+
+.card {
+  width: 400px;
+  border: none;
 }

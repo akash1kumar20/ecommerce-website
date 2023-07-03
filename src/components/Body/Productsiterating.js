@@ -9,14 +9,16 @@ export default function Productsiterating(props) {
       id: props.id,
       price: props.price,
       name: props.name,
-      image: props.image,
+      image: `${props.image}`,
     });
   };
   return (
     <div className="container">
       <div className="card">
         <h3 className="titleA">{props.name}</h3>
-        <div className="card-img-top image">{props.image}</div>
+        <div className="card-img-top image">
+          <img src={`${props.image}`} alt=""></img>
+        </div>
         <div className="card-body">
           <div className="row justify-content-between">
             <div className="col-md-3 price">₹{props.price}</div>

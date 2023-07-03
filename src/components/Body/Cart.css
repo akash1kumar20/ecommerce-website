@@ -1,11 +1,17 @@
 .text {
   font-weight: bolder;
   font-size: larger;
+  border-bottom: 1px solid black;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 .box {
-  border: 1px solid black;
-  width: 30%;
-
-  align-items: end;
-  justify-content: end;
+  font-weight: bolder;
+  font-size: larger;
+}
+.cartImage {
+  max-height: fit-content;
+  max-width: fit-content;
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
 }

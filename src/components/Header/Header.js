@@ -1,5 +1,7 @@
 import React from "react";
 import "./Header.css";
+import Cart from "../Body/Cart";
+
 export default function Header() {
   return (
     <nav className="navbar navbar-expand-md bg-dark navbar-dark justify-content-center ">
@@ -21,9 +23,7 @@ export default function Header() {
             </a>
           </li>
           <li className="nav-item cart">
-            <a className="nav-link active" href="#">
-              cart
-            </a>
+            <Cart />
           </li>
         </ul>
       </div>

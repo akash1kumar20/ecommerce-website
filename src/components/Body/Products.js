@@ -1,34 +1,31 @@
 import React from "react";
 import Productsiterating from "./Productsiterating";
 import "./Products.css";
-import img1 from "../../images/Album 1.png";
-import img2 from "../../images/Album 2.png";
-import img3 from "../../images/Album 3.png";
-import img4 from "../../images/Album 4.png";
+
 const productList = [
   {
     id: 1,
     title: "Album 1",
     price: 100,
-    imageUrl: <img src={img1} alt="Image 1" />,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
   },
   {
     id: 2,
     title: "Album 2",
     price: 50,
-    imageUrl: <img src={img2} alt="Image 2" />,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
   },
   {
     id: 3,
     title: "Album 3",
     price: 70,
-    imageUrl: <img src={img3} alt="Image 3" />,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
   },
   {
     id: 4,
     title: "Album 4",
     price: 100,
-    imageUrl: <img src={img4} alt="Image 4" />,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
   },
 ];
 export default function Products() {

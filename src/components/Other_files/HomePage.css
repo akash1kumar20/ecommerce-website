@@ -1,0 +1,36 @@
+.homePage {
+  background-color: rgb(73, 94, 78);
+  margin-top: 1px;
+  color: white;
+  text-align: center;
+  height: 18rem;
+}
+h1 {
+  font-size: 80px;
+}
+.textSize {
+  font-family: bolder;
+  font-size: 150%;
+}
+.icon {
+  color: aqua;
+  font-size: 350%;
+}
+.homeItem {
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 40px;
+  }
+  .homePage {
+    height: 9rem;
+  }
+  .icon {
+    font-size: 150%;
+  }
+  .textSize {
+    font-size: 100%;
+  }
+}

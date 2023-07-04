@@ -1,5 +1,6 @@
 .cart {
   text-align: right;
-  position: absolute;
+  position: fixed;
   right: 3%;
+  top: -0.3%;
 }

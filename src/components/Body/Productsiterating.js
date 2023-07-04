@@ -10,6 +10,7 @@ export default function Productsiterating(props) {
       price: props.price,
       name: props.name,
       image: `${props.image}`,
+      quantity: 1,
     });
   };
   return (

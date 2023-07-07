@@ -1,0 +1,13 @@
+.aboutimg {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.abouth {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}

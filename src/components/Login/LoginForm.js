@@ -29,7 +29,7 @@ export default function LoginForm() {
     const emailValue = mail;
 
     fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAKU4q2CTZZAoZ5TqdKPLlU7bJIwmX0kJs",
+      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAKU4q2CTZZAoZ5TqdKPLlU7bJIwmX0kJs",
       {
         method: "POST",
         body: JSON.stringify({
@@ -48,16 +48,13 @@ export default function LoginForm() {
         } else {
           return res.json().then((data) => {
             let errorMessage = "Authentication failed";
-            // if (data && data.error && data.error.message) {
-            //   //if we have data, and data has an error object with some message proprety, then we make our errorMessage equal to that message.
-            //   errorMessage = data.error.message;
-            // }
             throw new Error(errorMessage);
           });
         }
       })
       .then((data) => {
         cartCtx.login(data.idToken);
+        console.log(cartCtx);
         navigate("/products");
       })
       .catch((err) => {

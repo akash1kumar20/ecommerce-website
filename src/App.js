@@ -7,6 +7,7 @@ import About from "./components/Other_files/About";
 import Contact from "./components/Other_files/Contact";
 import SingleProduct from "./components/Body/SingleProduct";
 import NotFoundPage from "./components/Other_files/NotFoundPage";
+import LoginForm from "./components/Login/LoginForm";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: "products/:productID", element: <SingleProduct /> },
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
+      { path: "login", element: <LoginForm /> },
       { path: "*", element: <NotFoundPage /> },
       //star is used, so if the router don't found any path mentioned above then it will show NotFoundPage component
     ],

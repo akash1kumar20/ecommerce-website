@@ -24,6 +24,11 @@ export default function Header() {
               ABOUT
             </NavLink>
           </li>
+          <li className="nav-item  me-md-5">
+            <NavLink to="login" className="ul">
+              LOGIN
+            </NavLink>
+          </li>
           <li className="nav-item me-md-5">
             <NavLink to="contact" className="ul">
               CONTACT

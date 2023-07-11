@@ -36,7 +36,7 @@ export default function Contact() {
         },
       }
     );
-    navigate("/products");
+    navigate("/");
     //when the user submit the form, first that data will be stored in database and then user will navigate to Store component
   };
 

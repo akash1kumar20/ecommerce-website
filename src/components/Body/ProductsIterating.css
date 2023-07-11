@@ -34,6 +34,7 @@
   text-align: center;
   margin-top: 15px;
   margin-bottom: 15px;
+  margin-right: 35px;
 }
 .margin {
   margin-top: 5px;
@@ -43,4 +44,8 @@
 .card {
   width: 400px;
   border: none;
+}
+.link {
+  text-decoration: none;
+  color: black;
 }

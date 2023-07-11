@@ -1,0 +1,35 @@
+.red {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.yellow {
+  margin-top: 20px;
+}
+.pink {
+  margin-left: 100px;
+  margin-top: 20px;
+  text-align: justify;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.blue {
+  margin-top: 4px;
+}
+.green:hover {
+  zoom: 200%;
+}
+.yellow:hover {
+  margin-top: 20px;
+  margin-right: 125px;
+}
+.sky {
+  color: green;
+  font-size: x-large;
+}
+.star {
+  background-color: green;
+  color: white;
+  width: fit-content;
+  border-radius: 1rem;
+  padding-left: 10px;
+  padding-right: 10px;
+}

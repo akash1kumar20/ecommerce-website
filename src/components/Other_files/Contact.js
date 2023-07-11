@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Title from "./../Header/Title.js";
 import classes from "./Contact.module.css";
+import { useNavigate } from "react-router-dom";
+
 export default function Contact() {
+  const navigate = useNavigate();
+  //instead of useHistory we using useNavigate
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [mail, setMail] = useState("");
@@ -14,6 +18,7 @@ export default function Contact() {
   const mailFn = (event) => {
     setMail(event.target.value);
   };
+
   const userFormData = (event) => {
     event.preventDefault();
     const NewObj = {
@@ -31,10 +36,10 @@ export default function Contact() {
         },
       }
     );
-    setName("");
-    setMobile("");
-    setMail("");
+    navigate("/products");
+    //when the user submit the form, first that data will be stored in database and then user will navigate to Store component
   };
+
   return (
     <div>
       <Title />
@@ -77,7 +82,7 @@ export default function Contact() {
                 onChange={mailFn}
               ></input>
             </div>
-            <div className={classes.title}>
+            <div className={classes.control}>
               <button type="submit" className="btn btn-primary">
                 Submit
               </button>

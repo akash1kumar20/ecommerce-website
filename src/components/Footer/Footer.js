@@ -25,7 +25,7 @@ export default function Footer() {
 
             <FontAwesomeIcon
               icon={faHeadphones}
-              className="me-4 ms-4 bg-info"
+              className="me-4 ms-4 bg-dark"
             />
           </h2>
         </div>

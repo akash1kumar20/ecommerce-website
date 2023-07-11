@@ -15,7 +15,7 @@ export default function Header() {
             {/* we use NavLink instead of link because Navlink help us to know, that which page is active */}
           </li>
           <li className="nav-item ms-md-5 me-md-2">
-            <NavLink to="product" className="ul">
+            <NavLink to="products" className="ul">
               STORE
             </NavLink>
           </li>

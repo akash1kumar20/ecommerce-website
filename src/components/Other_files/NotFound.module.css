@@ -1,0 +1,16 @@
+.errorText {
+  margin-top: 10rem;
+}
+.smiley {
+  margin-left: 15px;
+  font-size: 150%;
+  text-align: center;
+  color: white;
+  background-color: rgb(18, 58, 129);
+  border-radius: 40%;
+}
+.Ebtn {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 8.2rem;
+}

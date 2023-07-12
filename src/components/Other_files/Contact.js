@@ -82,7 +82,7 @@ export default function Contact() {
                 onChange={mailFn}
               ></input>
             </div>
-            <div className={classes.control}>
+            <div className={classes.button}>
               <button type="submit" className="btn btn-primary">
                 Submit
               </button>

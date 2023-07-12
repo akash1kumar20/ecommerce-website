@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
 import Cart from "../Body/Cart";
-
+import AuthContext from "../../Data_room/auth-context";
 export default function Header() {
+  const autCont = useContext(AuthContext);
+  const isLoggedIN = autCont.isLoggedIn;
   return (
     <nav className="navbar navbar-expand-md bg-dark navbar-dark ">
       <div className="container-fluid justify-content-center ">

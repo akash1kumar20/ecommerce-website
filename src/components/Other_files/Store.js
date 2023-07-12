@@ -9,6 +9,7 @@ export default function Store() {
       navigate("/login");
     }
   }, []);
+  //we are making sure that this component is only get render when we taken in the localstorage, user can't visit this component even from the URL without the token.
   return (
     <div>
       <Title />

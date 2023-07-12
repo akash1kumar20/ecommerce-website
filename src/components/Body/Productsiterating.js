@@ -1,9 +1,9 @@
+import { Link, json } from "react-router-dom";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import CartContext from "../../Data_room/CartContext";
 import "./ProductsIterating.css";
+import CartContext from "../../Data_room/CartContext";
 export default function Productsiterating(props) {
-  let cartCtx = useContext(CartContext);
+  const cartCtx = useContext(CartContext);
   const addItems = (event) => {
     event.preventDefault();
     cartCtx.addItem({
@@ -31,7 +31,6 @@ export default function Productsiterating(props) {
         <Link to={`${props.id}`} className="link">
           {/* we define in the route that key of path take us to the single product page, so whenever user click on the image of title it take user to the single page product component with the id of the image/title clicked. Whatever we define here in to, it become the url of that thing. */}
           <h3 className="titleA">{props.name}</h3>
-
           <div className="card-img-top image">
             <img src={`${props.image}`} alt=""></img>
           </div>

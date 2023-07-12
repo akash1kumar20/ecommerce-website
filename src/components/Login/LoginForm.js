@@ -19,7 +19,7 @@ export default function LoginForm() {
     const emailValue = mailRef.current.value;
     setIsLoading(true);
     let url;
-    if (!isLogin) {
+    if (isLogin) {
       //if user is signing in, here we want user to use all other featuers just by sign up, that's why we use !isLogin, else we use isLogin.
       url =
         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAKU4q2CTZZAoZ5TqdKPLlU7bJIwmX0kJs";

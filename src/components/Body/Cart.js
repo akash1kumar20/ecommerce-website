@@ -2,9 +2,12 @@ import React, { useContext, useState } from "react";
 import "./Cart.css";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import CartContext from "../../Data_room/CartContext";
-
+import AuthContext from "../../Data_room/auth-context";
+import { useNavigate } from "react-router-dom";
 export default function Cart() {
+  const navigate = useNavigate();
   const cartCtx = useContext(CartContext);
+  const autCont = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const handleShow = () => {
     setShow(true);
@@ -19,6 +22,12 @@ export default function Cart() {
 
   const decrease = (id) => {
     cartCtx.removeItem(id);
+  };
+
+  const logOutHandler = (event) => {
+    event.preventDefault();
+    autCont.logout();
+    navigate("/login");
   };
 
   if (cartCtx.items.length > 0) {
@@ -88,6 +97,14 @@ export default function Cart() {
               <div className="col-3 me-5">
                 <button className="btn btn-primary text-white btn-lg">
                   PURCHASE
+                </button>
+              </div>
+              <div className="col-3 me-5">
+                <button
+                  className="btn btn-danger text-white btn-lg"
+                  onClick={logOutHandler}
+                >
+                  Logout
                 </button>
               </div>
             </div>

@@ -15,3 +15,9 @@
   font-family: "Times New Roman", Times, serif;
   font-size: large;
 }
+.span {
+  text-align: center;
+  color: red;
+  font-size: small;
+  margin-bottom: 3px;
+}

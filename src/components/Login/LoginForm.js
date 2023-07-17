@@ -3,12 +3,14 @@ import Title from "../Header/Title";
 import classes from "./../Other_files/Contact.module.css";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../Data_room/auth-context";
+
 export default function LoginForm() {
   const autCont = useContext(AuthContext);
   const navigate = useNavigate();
   //instead of useHistory we using useNavigate
   const mailRef = useRef();
   const passRef = useRef();
+
   const [isLogin, setIsLogin] = useState(true);
   //we use state to find, if the user is signing in or signing up.
   const [isLoading, setIsLoading] = useState(false);
@@ -17,6 +19,7 @@ export default function LoginForm() {
     event.preventDefault();
     const passValue = passRef.current.value;
     const emailValue = mailRef.current.value;
+
     setIsLoading(true);
     let url;
     if (isLogin) {
@@ -56,7 +59,7 @@ export default function LoginForm() {
         }
       })
       .then((data) => {
-        autCont.login(data.idToken);
+        autCont.login(data.idToken, emailValue);
         //passing our token to the login, which also take token as the argument.
         navigate("/products");
         //after success send user to products page.

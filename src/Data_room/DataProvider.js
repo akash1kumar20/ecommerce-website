@@ -1,5 +1,6 @@
-import React, { useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import CartContext from "./CartContext";
+import axios from "axios";
 
 const defaultValue = {
   items: [],
@@ -22,7 +23,6 @@ const reducerFn = (latestSnapShot, actionTaken) => {
     } else {
       itemAdded = latestSnapShot.items.concat(actionTaken.item);
     }
-
     return {
       items: itemAdded,
     };
@@ -49,14 +49,42 @@ const reducerFn = (latestSnapShot, actionTaken) => {
       items: itemSubtract,
     };
   }
+
   return defaultValue;
 };
 
 const DataProvider = (props) => {
   const [latestState, dispatchFn] = useReducer(reducerFn, defaultValue);
 
-  const addedInCart = (item) => {
+  const addedInCart = async (item) => {
     dispatchFn({ do: "PLUS", item: item });
+    const email = localStorage.getItem("email");
+    const ChangesEMail = email.replace("@", "").replace(".", "");
+
+    axios
+      .post(
+        `https://crudcrud.com/api/b745b4d43ca24770bb6cb44f0e9c0a01/value${ChangesEMail}`,
+        //to make the data specific to the user data, we're also adding email in the store. And it doesn't allowed dot and @ that's we're replacing it by dot.
+        item
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // const respsonse = await fetch(
+    //   `https://crudcrud.com/api/5c069eb542b04eb5a6044890944c24cc/data/${ChangesEMail}`,
+    //   {
+    //     method: "POST",
+    //     body: JSON.stringify(item),
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   }
+    // );
+    // const data = respsonse.json();
+    // console.log(data);
   };
   const removeFromCart = (id) => {
     dispatchFn({ do: "MINUS", id: id });
@@ -68,6 +96,7 @@ const DataProvider = (props) => {
     removeItem: removeFromCart,
   };
   console.log(cartContext);
+
   return (
     <CartContext.Provider value={cartContext}>
       {props.children}

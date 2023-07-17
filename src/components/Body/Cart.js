@@ -1,27 +1,51 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./Cart.css";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import CartContext from "../../Data_room/CartContext";
 import AuthContext from "../../Data_room/auth-context";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 export default function Cart() {
   const navigate = useNavigate();
-  const cartCtx = useContext(CartContext);
   const autCont = useContext(AuthContext);
   const [show, setShow] = useState(false);
+  const [dataApi, setDataApi] = useState([]);
+  const email = localStorage.getItem("email");
+  const ChangesEMail = email.replace("@", "").replace(".", "");
   const handleShow = () => {
+    fetch(
+      `https://crudcrud.com/api/b745b4d43ca24770bb6cb44f0e9c0a01/value${ChangesEMail}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          // "auth-token": localStorage.getItem("token"),
+        },
+      }
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setDataApi(data);
+      });
+    //this then is generate when response return tranfsormed data.
     setShow(true);
   };
   const handleClose = () => {
     setShow(false);
   };
 
-  const total = cartCtx.items.reduce((prevValue, item) => {
+  const total = dataApi.reduce((prevValue, item) => {
     return prevValue + item.price * item.quantity;
   }, 0);
 
   const decrease = (id) => {
-    cartCtx.removeItem(id);
+    axios.delete(
+      `https://crudcrud.com/api/fda7765aeb2048c78e4d2b097784162c/value${ChangesEMail}\{id}`
+    );
   };
 
   const logOutHandler = (event) => {
@@ -30,7 +54,7 @@ export default function Cart() {
     navigate("/login");
   };
 
-  if (cartCtx.items.length > 0) {
+  if (dataApi.length > 0) {
     return (
       <div>
         <button
@@ -56,8 +80,8 @@ export default function Cart() {
           </Offcanvas.Header>
 
           <Offcanvas.Body>
-            {cartCtx.items.map((item) => (
-              <div className="row">
+            {dataApi.map((item) => (
+              <div className="row" key={item.id}>
                 <div className="col-3 ms-3 text">
                   <u>ITEM</u>
 
@@ -68,6 +92,7 @@ export default function Cart() {
                       height="80px"
                       className="mb-2 mt-2"
                     />
+
                     {item.name}
                   </div>
                 </div>
@@ -83,7 +108,7 @@ export default function Cart() {
                       className="btn btn-danger ms-2 btn-md"
                       onClick={decrease.bind(null, item.id)}
                     >
-                      ➖
+                      <FontAwesomeIcon icon={faTrash} />
                     </button>
                   </p>
                 </div>
@@ -94,8 +119,12 @@ export default function Cart() {
               <div className="col-1 box me-5"> ₹{total}</div>
             </div>
             <div className="row justify-content-center">
+              <span className="span"> * Minimum Amount Should be 100</span>
               <div className="col-3 me-5">
-                <button className="btn btn-primary text-white btn-lg">
+                <button
+                  className="btn btn-primary text-white btn-lg"
+                  disabled={total < 100}
+                >
                   PURCHASE
                 </button>
               </div>

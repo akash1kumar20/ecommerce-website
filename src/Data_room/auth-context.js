@@ -6,19 +6,24 @@ const AuthContext = React.createContext({
   //just to find out that the user is logged in or not
   login: (token) => {},
   logout: () => {},
+  email: "",
 });
 
 export const AuthContextProvider = (props) => {
   //we user provider directly in the index.js file to make it the parent of the other compponent.
   const tokenValue = localStorage.getItem("token");
+  const mailValue = localStorage.getItem("email");
+  const [email, setEmail] = useState(mailValue);
   const [token, setToken] = useState(tokenValue);
   //used to find that user is logged in or not, if we have a token then user is logged in, it also help us to auto-login after refresh the page.
   const userIsLoggenIn = !!token;
   //if a token is a string and not empty, it will return true and in other case it return false.
-  const loginHandler = (token) => {
-    setToken(token);
+  const loginHandler = (token, email) => {
     localStorage.setItem("token", token);
-    setTimeout(logoutHandler, 50000);
+    localStorage.setItem("email", email);
+    setToken(token);
+    setEmail(email);
+    setTimeout(logoutHandler, 500000);
     //after a timer logoutHandler function will get activate, and it will auto logout the user.
     //default value of token expire is one hour.
   };
@@ -32,6 +37,7 @@ export const AuthContextProvider = (props) => {
     isLoggedIn: userIsLoggenIn,
     login: loginHandler,
     logout: logoutHandler,
+    email: email,
   };
   console.log(contextValue);
   return (

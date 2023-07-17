@@ -2,7 +2,7 @@
   text-align: right;
   position: fixed;
   right: 3%;
-  top: -0.3%;
+  top: -0.1%;
 }
 .ul {
   text-decoration: none;
@@ -13,4 +13,6 @@
   color: white;
   border: 1px solid slateblue;
   background-color: brown;
+  padding: 5px;
+  zoom: 110%;
 }

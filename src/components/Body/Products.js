@@ -39,9 +39,9 @@ export default function Products() {
     />
   ));
   return (
-    <div>
+    <div className="container">
       <h2 className="titleA">MUSIC</h2>
-      <div> {productDisplay}</div>
+      <div className="row ms-5"> {productDisplay}</div>
     </div>
   );
 }

@@ -46,7 +46,7 @@ export default function SingleProduct() {
             <h4>₹{dataRequired.price}</h4>
             <h5>ID: {params.productID}</h5>
             <p className="star">
-              3.9 <FontAwesomeIcon icon={faStar} />
+              {dataRequired.rating} <FontAwesomeIcon icon={faStar} />
             </p>
             <p>
               <b>All Products</b>

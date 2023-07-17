@@ -6,6 +6,10 @@ import AuthContext from "../../Data_room/auth-context";
 export default function Header() {
   const autCont = useContext(AuthContext);
   const isLoggedIN = autCont.isLoggedIn;
+  const logoutHandler = (event) => {
+    event.preventDefault();
+    autCont.logout();
+  };
   return (
     <nav className="navbar navbar-expand-md bg-dark navbar-dark ">
       <div className="container-fluid justify-content-center ">
@@ -28,11 +32,20 @@ export default function Header() {
               ABOUT
             </NavLink>
           </li>
-          <li className="nav-item  me-md-5">
-            <NavLink to="login" className="ul">
-              LOGIN
-            </NavLink>
-          </li>
+          {!isLoggedIN ? (
+            <li className="nav-item  me-md-5">
+              <NavLink to="login" className="ul">
+                LOGIN
+              </NavLink>
+            </li>
+          ) : (
+            <li className="nav-item  me-md-5" onClick={logoutHandler}>
+              <NavLink to="login" className="ul">
+                LOGOUT
+              </NavLink>
+            </li>
+          )}
+          {/* if the user is loggedIn we show Logout, else LogIn option */}
           <li className="nav-item me-md-5">
             <NavLink to="contact" className="ul">
               CONTACT

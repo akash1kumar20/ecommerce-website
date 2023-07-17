@@ -31,6 +31,8 @@ export const AuthContextProvider = (props) => {
     setToken(null);
     //just setting the token value equal to the null, because if token is empty user can access the data.
     localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    localStorage.removeItem("product");
   };
   const contextValue = {
     token: token,

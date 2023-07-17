@@ -63,7 +63,7 @@ const DataProvider = (props) => {
 
     axios
       .post(
-        `https://crudcrud.com/api/b745b4d43ca24770bb6cb44f0e9c0a01/value${ChangesEMail}`,
+        `https://crudcrud.com/api/11eda2494c5a44e4bf764b10b9625916/value${ChangesEMail}`,
         //to make the data specific to the user data, we're also adding email in the store. And it doesn't allowed dot and @ that's we're replacing it by dot.
         item
       )
@@ -73,18 +73,6 @@ const DataProvider = (props) => {
       .catch((err) => {
         console.log(err);
       });
-    // const respsonse = await fetch(
-    //   `https://crudcrud.com/api/5c069eb542b04eb5a6044890944c24cc/data/${ChangesEMail}`,
-    //   {
-    //     method: "POST",
-    //     body: JSON.stringify(item),
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   }
-    // );
-    // const data = respsonse.json();
-    // console.log(data);
   };
   const removeFromCart = (id) => {
     dispatchFn({ do: "MINUS", id: id });

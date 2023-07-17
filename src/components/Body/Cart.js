@@ -9,6 +9,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 export default function Cart() {
   const navigate = useNavigate();
+  const cartCtx = useContext(CartContext);
   const autCont = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const [dataApi, setDataApi] = useState([]);
@@ -16,7 +17,7 @@ export default function Cart() {
   const ChangesEMail = email.replace("@", "").replace(".", "");
   const handleShow = () => {
     fetch(
-      `https://crudcrud.com/api/b745b4d43ca24770bb6cb44f0e9c0a01/value${ChangesEMail}`,
+      `https://crudcrud.com/api/11eda2494c5a44e4bf764b10b9625916/value${ChangesEMail}`,
       {
         method: "GET",
         headers: {
@@ -43,9 +44,7 @@ export default function Cart() {
   }, 0);
 
   const decrease = (id) => {
-    axios.delete(
-      `https://crudcrud.com/api/fda7765aeb2048c78e4d2b097784162c/value${ChangesEMail}\{id}`
-    );
+    cartCtx.removeItem();
   };
 
   const logOutHandler = (event) => {

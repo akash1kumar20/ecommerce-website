@@ -16,7 +16,7 @@ export default function NotFoundPage() {
         </div>
         <div className="col-12">
           <h1 className={classes.Ebtn}>
-            <Link to="/login">
+            <Link to="/">
               <button className="btn btn-primary btn-lg">Click On Me!</button>
             </Link>
           </h1>
